@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                  document.getElementById('activity-2').style.display = 'none';
+                 document.getElementById('activity-4').style.display = 'none';
+                document.getElementById('activity-1').style.display = 'none';
+                   document.getElementById('activity-5').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - H2 - M25.5</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+<!-- Actividad 1 -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_ritual')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 2.5 minutos</div>
+         <div class="subtitle">Preparación para la práctica de mejoras en la app de alojamiento.</div>
+    </div>
+    <div id="saludo_ritual" class="content">
+        <table>
+             <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 2 "Bienvenida".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hola, Genios. Hoy vamos a refinar nuestras aplicaciones de alojamiento, trabajando en la experiencia del usuario, mejorando el diseño y creando una interfaz atractiva y funcional. ¡Prepárense para pulir sus proyectos!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 3 "¿Cómo Están?".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de empezar, quiero saber cómo se sienten. Si están listos para mejorar sus aplicaciones, toquen su hombro derecho con la mano izquierda. Si necesitan recargar energía, estiren los brazos hacia los lados y den una vuelta."</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 4 "Gracias por Asistir".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, juntemos nuestras manos en agradecimiento por estar aquí, listos para aprender y crear algo increíble. ¡Gracias por asistir, Genios!"</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 5 "Objetivos de la Misión".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy tenemos dos objetivos principales: 1. Implementar mejoras en la interfaz de usuario, haciendo que sus aplicaciones sean más atractivas y fáciles de usar. 2. Aplicar los consejos de retroalimentación recibidos por sus compañeros y mejorar la experiencia de usuario."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 2 -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">🕺 Actividad 2: State Change ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Activar el cuerpo y la mente con un baile de 30 segundos.</div>
+    </div>
+    <div id="state_change" class="content">
+        <table>
+             <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 6 "Baile de 30 Segundos".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, vamos a recargar nuestra energía con un baile de 30 segundos. Pongan música y muevan su cuerpo libremente. ¡Es hora de disfrutar y reactivar nuestras mentes!"</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 7 "Cronómetro - 1 Minuto".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 8 "Beneficios del Baile".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Muy bien, Genios. Bailar no solo nos ayuda a liberar tensiones, sino que también mejora nuestro estado de ánimo y nos prepara para abordar los retos creativos de hoy. ¡Ahora estamos listos para crear!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 3 -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">🤝 Actividad 3: Team Gnius ⏰ Tiempo: 3 minutos</div>
+        <div class="subtitle">Reunión de equipos para la revisión y mejora de las aplicaciones.</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <table>
+             <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 9 "Reunión de Equipos".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, reúnanse con los mismos equipos con los que han estado trabajando en las misiones anteriores. Mantener la continuidad les ayudará a trabajar de manera eficiente. Tienen un minuto para organizarse."</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 10 "Cronómetro - 1 Minuto".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 11 "Recoger Magic Tablets".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, un representante de cada equipo pase al frente a recoger las Magic Tablets. Asegúrense de tener todos sus materiales listos para trabajar.  Tienen un minuto para prepararse."</td>
+            </tr>
+           <tr>
+               <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 12 "Cronómetro - 1 Minuto".</td>
+               <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 4 -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">🏆 Actividad 4: Challenge ⏰ Tiempo: 39 minutos</div>
+        <div class="subtitle">Implementar las mejoras de diseño y funcionalidad en la app de alojamiento.</div>
+    </div>
+    <div id="challenge" class="content">
+        <table>
+            <tr>
+                 <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 13 "Título del Challenge".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, hoy ha llegado el momento de pulir sus aplicaciones. Con base en la retroalimentación que recibieron de sus compañeros, mejorarán el diseño, la experiencia de usuario y añadirán cualquier otra función extra que consideren importante. ¡Prepárense para llevar sus apps al siguiente nivel!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 14 "Implementación de Mejoras".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "El reto de hoy consiste en revisar la retroalimentación que recibieron de sus compañeros, e implementar cambios en la interfaz de su aplicación de alojamiento. Trabajen en equipo para hacer que su aplicación sea más atractiva y fácil de usar, optimizando los flujos de trabajo y puliendo cada detalle. Si tienen algún tiempo extra, pueden añadir nuevas funcionalidades que consideren que complementen su proyecto. Tienen 30 minutos para pulir sus aplicaciones."</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 3 (30 minutos):</strong> Proyectar Diapositiva 15 "Cronómetro - 30 Minutos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+             <tr>
+                 <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 16 "Prueba de las Mejoras".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora que han implementado las mejoras en su app, es momento de probarlas. Intercambien dispositivos con el equipo más cercano y exploren las nuevas funcionalidades, asegurándose de que todo funcione correctamente. La prueba de sus aplicaciones les ayudará a encontrar cualquier detalle que puedan haber pasado por alto."</td>
+           </tr>
+           <tr>
+                <td><strong>PASO 5 (5 minutos):</strong> Proyectar Diapositiva 17 "Cronómetro - 5 Minutos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 6 (0.5 minutos):</strong> Proyectar Diapositiva 18 "Revisión de Objetivos".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, revisemos lo que hemos logrado hoy. Hemos mejorado la interfaz de nuestras aplicaciones, aplicado los consejos de otros equipos y creado apps más atractivas y funcionales.  ¡Han dado un gran paso en la creación de apps más completas!"</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 7 (0.5 minutos):</strong> Proyectar Diapositiva 19 "You've Got Mon-e".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Felicidades, Genios! Hoy han demostrado su capacidad para transformar la retroalimentación en acción.  Su esfuerzo y dedicación en la mejora de sus aplicaciones merecen un reconocimiento especial. ¡You've Got Mon-e por su excelente trabajo!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 5 -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">🏅 Actividad 5: Honor de Dojo ⏰ Tiempo: 2 minutos</div>
+         <div class="subtitle">Finalizar la sesión y organizar el espacio con respeto.</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (2 minutos):</strong> Proyectar Diapositiva 20 "Honor de Dojo".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, es momento de honrar nuestro espacio de trabajo. Por favor, asegúrense de devolver las Magic Tablets y recoger todos los materiales utilizados, dejando el Dojo en orden. ¡Gracias por su colaboración y compromiso en mantener nuestro lugar de trabajo impecable!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+</div>
+
+</body>
+</html>
